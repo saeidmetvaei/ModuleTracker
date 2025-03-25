@@ -7,11 +7,22 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
+
+    <!--routing machine css-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    />
+
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
+
+    <!--routing machine js-->
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
     <style>
       #map {
         position: absolute;
@@ -36,9 +47,53 @@
         maxZoom: 19,
       }).addTo(map);
 
-      L.marker([45.95, -66.64])
+      var control = L.Routing.control({
+        waypoints: [
+          L.latLng(45.950148, -66.642007),
+          L.latLng(45.950421, -66.642509),
+          L.latLng(45.948572, -66.644016),
+
+          L.latLng(45.947543, -66.646543),
+          L.latLng(45.94742, -66.650512),
+          L.latLng(45.943291, -66.648522),
+        ],
+        routeWhileDragging: true,
+        marker: {
+          icon: new L.Icon.Default(),
+          draggable: true,
+        },
+      }).addTo(map);
+      //<!--This line hides the addressing window-->
+      control.hide();
+
+      L.marker([45.950148, -66.642007])
         .addTo(map)
-        .bindPopup("A pretty CSS3 popup.<br> Easily customizable.")
+        .bindPopup("Marker 1 <br> <br> Time: <br> Sensors data:")
+        .openPopup();
+
+      L.marker([45.950421, -66.642509])
+        .addTo(map)
+        .bindPopup("Marker 2 <br> <br> Time: <br> Sensors data:")
+        .openPopup();
+
+      L.marker([45.948572, -66.644016])
+        .addTo(map)
+        .bindPopup("Marker 3 <br> <br> Time: <br> Sensors data:")
+        .openPopup();
+
+      L.marker([45.947543, -66.646543])
+        .addTo(map)
+        .bindPopup("Marker 4 <br> <br> Time: <br> Sensors data:")
+        .openPopup();
+
+      L.marker([45.94742, -66.650512])
+        .addTo(map)
+        .bindPopup("Marker 5 <br> <br> Time: <br> Sensors data:")
+        .openPopup();
+
+      L.marker([45.943291, -66.648522])
+        .addTo(map)
+        .bindPopup("Marker 6 <br> <br> Time: <br> Sensors data:")
         .openPopup();
     </script>
   </body>
